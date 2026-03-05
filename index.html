@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkish254 | Premium Menswear</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="header-container">
+            <div class="hamburger-menu" id="hamburgerBtn">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="logo">
+                <h1>TURKISH<span>254</span></h1>
+            </div>
+            <div class="cart-icon" id="cartBtn">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="close-sidebar" id="closeSidebar">&times;</button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="#home" class="menu-link" data-page="home">HOME</a></li>
+            <li><a href="#collections" class="menu-link" id="collectionsLink">COLLECTIONS</a></li>
+            <li><a href="#contact" class="menu-link" data-page="contact">CONTACT US</a></li>
+        </ul>
+        
+        <!-- Collections Submenu -->
+        <div class="collections-submenu" id="collectionsSubmenu">
+            <h4>Categories</h4>
+            <ul>
+                <li><a href="#" data-category="shirts">shirts</a></li>
+                <li><a href="#" data-category="sneakers">sneakers</a></li>
+                <li><a href="#" data-category="formal-shoes">formal shoes</a></li>
+                <li><a href="#" data-category="open-shoes">open shoes</a></li>
+                <li><a href="#" data-category="jackets">jackets</a></li>
+                <li><a href="#" data-category="khakis">khakis</a></li>
+                <li><a href="#" data-category="tracksuits">tracksuits</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Main Content -->
+    <main class="main-content" id="home">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h1 class="welcome-title">WELCOME TO TURKISH254</h1>
+            <p class="welcome-subtitle">your first choice menswear</p>
+            <div class="paragraph-container">
+                <p class="turkish-quote">
+                    "Turkish men's outfits speak in quiet confidence and timeless pride. 
+                    Tailored blazers rest sharply on the shoulders, flowing over crisp shirts 
+                    and perfectly cut trousers, blending the elegance of Istanbul with the charm 
+                    of Ankara. Rich earth tones, deep navy blues, and bold blacks echo tradition, 
+                    while modern cuts whisper ambition and style. Every stitch carries strength, 
+                    every fabric tells a story — crafted for the man who walks with purpose, 
+                    grace, and undeniable presence."
+                </p>
+            </div>
+        </section>
+
+        <!-- Slideshow Section -->
+        <section class="slideshow-section">
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="assets/images/slideshow/top homepage pic 1.png" alt="Turkish Outfit 1">
+                </div>
+                <div class="slide">
+                    <img src="assets/images/slideshow/top homepage pic 2.png" alt="Turkish Outfit 2">
+                </div>
+                <div class="slide">
+                    <img src="assets/images/slideshow/top homepage pic 3.png" alt="Turkish Outfit 3">
+                </div>
+                <div class="slide">
+                    <img src="assets/images/slideshow/top homepage pic 4.png" alt="Turkish Outfit 4">
+                </div>
+                <button class="slide-arrow prev" id="prevSlide">❮</button>
+                <button class="slide-arrow next" id="nextSlide">❯</button>
+                <div class="slide-dots">
+                    <span class="dot active-dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Collection Section -->
+        <section class="featured-section" id="featuredSection">
+            <h2 class="section-title">Featured Collection</h2>
+            <div class="featured-vertical-container" id="featuredVerticalContainer">
+                <!-- Featured products will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Category Products View -->
+        <section class="category-products" id="categoryProducts" style="display: none;">
+            <button class="back-btn" id="backToHome">← Back to Home</button>
+            <button class="back-btn" id="backToFeatured" style="display: none;">← Back to Featured</button>
+            <h2 class="category-title" id="categoryTitle"></h2>
+            <div class="vertical-scroll-container" id="verticalProducts"></div>
+        </section>
+
+        <!-- Cart Section -->
+        <section class="cart-section" id="cartSection" style="display: none;">
+            <button class="back-btn" id="backFromCart">← Continue Shopping</button>
+            <h2 class="section-title">Your Cart</h2>
+            <div id="cartItems" class="cart-items"></div>
+            
+            <div class="cart-totals">
+                <div class="totals-row">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">KSh 0.00</span>
+                </div>
+                <div class="totals-row">
+                    <span>Shipment 1:</span>
+                    <span>Custom Rate (Free)</span>
+                </div>
+                <div class="totals-row total">
+                    <span>Total:</span>
+                    <span id="cartTotal">KSh 0.00</span>
+                </div>
+                <button class="update-cart-btn" id="updateCartBtn">UPDATE CART</button>
+                <button class="checkout-btn" id="checkoutBtn">PROCEED TO CHECKOUT</button>
+            </div>
+        </section>
+
+        <!-- Checkout Section -->
+        <section class="checkout-section" id="checkoutSection" style="display: none;">
+            <button class="back-btn" id="backToCart">← Back to Cart</button>
+            <h2 class="section-title">Checkout</h2>
+            
+            <form id="checkoutForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First name *</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last name *</label>
+                        <input type="text" id="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Country / Region *</label>
+                    <select id="country" required>
+                        <option value="Kenya">Kenya</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Street address *</label>
+                    <input type="text" id="streetAddress" placeholder="House number and street name" required>
+                    <input type="text" id="aptSuite" placeholder="Apartment, suite, unit, etc. (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label>Town / City *</label>
+                    <select id="city" required>
+                        <option value="">Select city</option>
+                        <option value="Nairobi">Nairobi</option>
+                        <option value="Mombasa">Mombasa</option>
+                        <option value="Kisumu">Kisumu</option>
+                        <option value="Nakuru">Nakuru</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone *</label>
+                    <div class="phone-input">
+                        <span class="phone-prefix">+254</span>
+                        <input type="tel" id="phone" placeholder="712345678" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email address *</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>Your Order</h3>
+                    <table class="order-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderItems"></tbody>
+                        <tfoot>
+                            <tr>
+                                <td><strong>Subtotal</strong></td>
+                                <td id="orderSubtotal">KSh 0.00</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Shipment 1</strong></td>
+                                <td>Custom Rate</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total</strong></td>
+                                <td id="orderTotal">KSh 0.00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <!-- Payment Section -->
+                <div class="payment-section">
+                    <h3>Payment Method</h3>
+                    <div class="payment-option">
+                        <input type="radio" name="payment" id="mpesa" value="mpesa" checked>
+                        <label for="mpesa">
+                            <strong>M-PESA</strong><br>
+                            <span class="payment-desc">Place order and pay using M-PESA.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <p class="privacy-notice">
+                    Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.
+                </p>
+
+                <button type="submit" class="place-order-btn">PLACE ORDER</button>
+            </form>
+        </section>
+
+        <!-- Order Confirmation Section -->
+        <section class="confirmation-section" id="confirmationSection" style="display: none;">
+            <button class="back-btn" id="backFromConfirmation">← Back to Home</button>
+            <div class="confirmation-box">
+                <h2>Order Confirmation</h2>
+                <div class="order-details">
+                    <p><strong>ORDER NUMBER:</strong> <span id="orderNumber"></span></p>
+                    <p><strong>DATE:</strong> <span id="orderDate"></span></p>
+                    <p><strong>TOTAL:</strong> <span id="orderAmount"></span></p>
+                    <p><strong>PAYMENT METHOD:</strong> M-PESA</p>
+                </div>
+
+                <div class="mpesa-instructions">
+                    <h3>Payment Instructions:</h3>
+                    <ol>
+                        <li>Click on the <strong>Pay</strong> button in order to initiate the M-PESA payment.</li>
+                        <li>Check your mobile phone for a prompt asking to enter M-PESA pin.</li>
+                        <li>If there is <strong>NO PROMPT</strong> on your phone, the M-PESA balance could be insufficient, top up the M-PESA account and try again.</li>
+                        <li>Enter your <strong>M-PESA PIN</strong> and the amount specified on the notification will be deducted from your M-PESA account when you press send.</li>
+                        <li>When you enter the pin and click on send, you will receive an M-PESA payment confirmation message on your mobile phone.</li>
+                        <li>After receiving the M-PESA payment confirmation message please click on the <strong>Complete Order</strong> button below to complete the order and confirm the payment made.</li>
+                    </ol>
+                    
+                    <div class="instruction-buttons">
+                        <button class="pay-btn" id="payBtn">PAY</button>
+                        <button class="complete-order-btn" id="completeOrderBtn">COMPLETE ORDER</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Bar -->
+        <section class="trust-bar">
+            <div class="trust-container">
+                <div class="trust-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Free Shipping</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-undo"></i>
+                    <span>30-Day Returns</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>100% Authentic</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-lock"></i>
+                    <span>Secure Payment</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contactSection" style="display: none;">
+        <button class="back-btn" id="backFromContact">← Back to Home</button>
+        <div class="contact-container">
+            <h2 class="section-title">GET IN TOUCH</h2>
+            
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>0717292079</span>
+                </div>
+                <div class="info-item">
+                    <i class="far fa-envelope"></i>
+                    <span>samolum99@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="far fa-clock"></i>
+                    <span>24-hour (Monday – Sunday)</span>
+                </div>
+            </div>
+
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label>Name*</label>
+                    <input type="text" id="contactName" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number*</label>
+                    <input type="tel" id="contactPhone" required>
+                </div>
+                <div class="form-group">
+                    <label>Email*</label>
+                    <input type="email" id="contactEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Message*</label>
+                    <textarea id="contactMessage" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="send-btn">SEND</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <div class="footer-links">
+            <a href="#" class="footer-home">Home</a>
+            <a href="#" class="footer-collections">Collections</a>
+            <a href="#" class="footer-contact">Contact Us</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://wa.me/254717292079" target="_blank" class="whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <p class="footer-copy">&copy; 2026 TURKISH254. All rights reserved.</p>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content-image" id="modalImage">
+    </div>
+
+    <!-- Confirm Modal (Only for Add to Cart) -->
+    <div id="confirmModal" class="confirm-modal">
+        <div class="confirm-modal-content">
+            <div class="confirm-header">
+                <h3><i class="fas fa-shopping-cart"></i> Add to Cart</h3>
+                <button class="close-confirm">&times;</button>
+            </div>
+            <div class="confirm-body">
+                <i class="fas fa-question-circle confirm-icon"></i>
+                <p id="confirmMessage">Do you want to add to Cart?</p>
+            </div>
+            <div class="confirm-footer">
+                <button class="confirm-no" id="confirmNo">
+                    <i class="fas fa-times"></i> No
+                </button>
+                <button class="confirm-yes" id="confirmYes">
+                    <i class="fas fa-check"></i> Yes
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
